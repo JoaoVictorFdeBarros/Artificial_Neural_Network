@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from device import set_device
 
-def plot_boundary(X, y, model,subplot,y_name,x_name):
+def plot_boundary(X, y, model,subplot,y_name,x_name, class_labels):
   plt.sca(subplot)
   plt.title("Estado atual")
   plt.xlabel(x_name + " - Normalizado")
@@ -26,4 +26,7 @@ def plot_boundary(X, y, model,subplot,y_name,x_name):
   Z = clf.reshape(XX.shape)
   
   plt.contourf(XX, YY, Z, cmap=plt.cm.brg, alpha=0.5)
-  plt.scatter(X[:,0], X[:,1], c=y, edgecolors='k', s=25, cmap=plt.cm.brg)
+  scatter = plt.scatter(X[:, 0], X[:, 1], c=y, edgecolors='k', s=25, cmap=plt.cm.brg)
+  legend_labels = [f'Iris-{label}' for label in class_labels]
+  legend = plt.legend(handles=scatter.legend_elements()[0], labels=legend_labels)
+  legend.get_frame().set_facecolor('yellow')
