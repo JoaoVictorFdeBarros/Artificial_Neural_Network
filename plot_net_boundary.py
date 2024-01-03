@@ -3,9 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from device import set_device
 
-def plot_boundary(X, y, model,subplot):
+def plot_boundary(X, y, model,subplot,y_name,x_name):
   plt.sca(subplot)
   plt.title("Estado atual")
+  plt.xlabel(x_name + " - Normalizado")
+  plt.ylabel(y_name + " - Normalizado") 
 
   x_min, x_max = X[:, 0].min()-0.1, X[:, 0].max()+0.1
   y_min, y_max = X[:, 1].min()-0.1, X[:, 1].max()+0.1
