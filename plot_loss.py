@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_error(n_interations,error,subplot):
+def plot_loss(n_interations,error,subplot):
     plt.sca(subplot)
     plt.plot(n_interations,error,color='black')
     plt.xlabel("Épocas")

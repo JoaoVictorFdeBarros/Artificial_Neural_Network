@@ -7,7 +7,7 @@ from device import set_device
 from criterion import criterion
 from plot_net_boundary import plot_boundary
 from optimizer import set_optimizer
-from plot_error import plot_error
+from plot_loss import plot_loss
 from sklearn.datasets import load_iris
 
 hidden_layer_size = 1024
@@ -44,7 +44,7 @@ for i in range(n_interations):
 
     if i%(int(n_interations/n_prints)) == 0 or i==n_interations -1:
         plot_boundary(data, target, net,axs[0],"Comprimento do caule","Comprimento da pétala",dataset.target_names)
-        plot_error([i for i in range(0, i + 1)], error_array,axs[1])
+        plot_loss([i for i in range(0, i + 1)], error_array,axs[1])
 
         plt.pause(0.0005)
 
